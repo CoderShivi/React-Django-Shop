@@ -51,8 +51,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    # supports CORS - added
     'corsheaders.middleware.CorsMiddleware', 
-    'django.middleware.CommonMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'backend.urls'
@@ -121,14 +123,19 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS=[BASE_DIR / 'static']
-MEDIA_URL = '/media/'
+
 MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL='/'
 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-CORS_ALLOWED_ORIGINS = ['https://localhost:5173',]
+
+# added
+
+CORS_ALLOWED_ORIGINS = [
+    'https://localhost:5173',
+    ]
                         
